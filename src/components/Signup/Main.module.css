@@ -1,0 +1,45 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .background {
+  border: 1px solid black;
+  padding: 2rem;
+  border-radius: 30px;
+  background-color: rgb(63, 63, 63);
+  color: white;
+}
+
+.container h2 {
+  margin-bottom: .25rem;
+  margin-top: 1.25rem;
+}
+
+.container .background .section {
+  text-align: end;
+  margin: .75rem;
+}
+
+.container .background .section label {
+  font-size: 1.1em;
+}
+
+.container .background .section input {
+  font-size: 1.1em;
+  padding: .25rem;
+  border-radius: .5rem;
+}
+
+.container .background .button {
+  font-size: 1.1em;
+  padding: .5rem 1rem ;
+  border-radius: 3rem;
+  cursor: pointer;
+  background: white;
+}

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montez&display=swap');
+
+.container {
+  background-color: #5a5a5a;
+  color: rgb(255, 255, 255);
+  max-width: 90%;
+  margin: 0 auto;
+  padding: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .logo {
+  text-align: center;
+  padding-left: 1.5rem;
+}
+
+.container .logo h2 {
+  margin: 0;
+  padding: 0;
+}
+.container .logo p {
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+  font-family: Montez;
+  font-size: 1.5em;
+}
+
+.container .option_list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .option_list .option {
+  margin: 0 1.5rem;
+  cursor: pointer;
+}
+
+.container .option_list .option:hover {
+  border-bottom: 1px solid white;
+  margin-bottom: -1px;
+}
+
+.container .user_nickname {
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+.container .user_nickname p {
+  margin: 0;
+}
+
+.container .user_nickname .button {
+  padding: .5rem 1rem;
+  margin: 0 .25rem;
+}
+
+.container .enroll {
+  margin-right: 1.5rem;
+}
+
+.container .button {
+  margin: 0 .125rem;
+  padding: .75rem 1.25rem;
+  border-radius: 30px;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: white;
+}
+
+.container .button:hover {
+  box-shadow: .2rem .2rem .2rem black;
+}
+
+@media (max-width: 730px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .container .logo {
+    padding: 0;
+  }
+
+  .container .option_list {
+    justify-content: space-between;
+  }
+
+  .container .enroll {
+    margin: 0;
+  }
+
+  .container .enroll .button {
+    margin: 0 1.25rem;
+    padding: .5rem 1rem;
+  }
+}

@@ -1,0 +1,18 @@
+.container {
+  max-width: 1080px;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 0rem;
+  border: 1px dashed gray;
+  border-radius: 2rem;
+}
+.container:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.container img {
+  width: 10rem;
+  border-radius: 1rem;
+}
