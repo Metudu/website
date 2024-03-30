@@ -1,6 +1,7 @@
 import Main from "../components/Login/Main"
 
-export default function Login(props) {
+export default function Login() {
+
   return(
   <>
     <Main />

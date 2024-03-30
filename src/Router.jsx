@@ -1,11 +1,10 @@
-import React from "react";
 import { Routes, Route } from 'react-router-dom'
-
 import Index from './pages/Index'
 import AboutUs from "./pages/AboutUs";
 import Plans from "./pages/Plans"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
+import Dashboard from "./pages/Dashboard"
 
 function Router() {
   return(
@@ -15,7 +14,7 @@ function Router() {
       <Route exact path="/plans" Component={Plans}></Route>
       <Route exact path="/login" Component={Login}></Route>
       <Route exact path="/signup" Component={Signup}></Route>
-      <Route exact path="/dashboard" Component={Index}></Route>
+      <Route exact path="/dashboard" Component={Dashboard}></Route>
     </Routes>
   ) 
 }

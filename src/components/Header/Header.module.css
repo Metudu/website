@@ -45,16 +45,16 @@
   margin-bottom: -1px;
 }
 
-.container .user_nickname {
+.container .profile {
   margin-right: 1.5rem;
   text-align: center;
 }
 
-.container .user_nickname p {
+.container .profile p {
   margin: 0;
 }
 
-.container .user_nickname .button {
+.container .profile .button {
   padding: .5rem 1rem;
   margin: 0 .25rem;
 }

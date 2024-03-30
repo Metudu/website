@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import styles from "./Main.module.css"
-import { useContext } from "react";
-import { LoggedInContext } from "../../App";
 import { useNavigate } from "react-router-dom";
+import {LoggedInContext} from "../../App"
 
 export default function Main() {
 
@@ -12,7 +11,8 @@ export default function Main() {
   const [userEmail, setUserEmail] = useState();
   const [userPassword, setUserPassword] = useState();
   const [userPasswordAgain, setUserPasswordAgain] = useState();
-  const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
+  const {loggedIn, setLoggedIn} = useContext(LoggedInContext);
+
   const navigate = useNavigate();
 
   async function signUpUser() {
@@ -33,12 +33,12 @@ export default function Main() {
     
     if (result.success) {
       alert("You have successfully created the user! Redirecting...")
-      setLoggedIn(true)
       window.localStorage.setItem(`user`, JSON.stringify({
-        userId: result.userId,
         userPlan: result.userPlan,
         user: result.user
       }))
+      setLoggedIn(true);
+      navigate("/dashboard");
     } else {
       alert(`Something went wrong! Error code: ${result.error.Code}`)
     }
@@ -54,12 +54,6 @@ export default function Main() {
       signUpUser()
     }
   }
-
-  useEffect(() => {
-    if(loggedIn) {
-      navigate("/dashboard")
-    }
-  }, [loggedIn]);
 
   return(
   <>

@@ -1,17 +1,26 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react";
 import Router from "./Router"
 import Header from "./components/Header/Header";
+import { useNavigate } from "react-router-dom";
 
 export const LoggedInContext = createContext({
-  loggedIn: window.localStorage.getItem("user") != null,
+  loggedIn: null,
   setLoggedIn: () => {}
 });
 
 function App() {
   const [loggedIn, setLoggedIn] = useState();
   const value = {loggedIn, setLoggedIn};
+  const navigate = useNavigate();
 
-  console.log(window.localStorage.getItem("user"));
+  useEffect(() => {
+    if (window.localStorage.getItem("user")) {
+      setLoggedIn(true);
+      navigate("/dashboard");
+    }
+    else setLoggedIn(false)
+  }, [loggedIn]);
+
   return (
   <>
     <LoggedInContext.Provider value={value}>
