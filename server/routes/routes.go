@@ -20,4 +20,5 @@ func InitRouter(m *mux.Router) *Router {
 
 func (r *Router) InitRoutes(db *database.Database) {
 	r.HandleFunc("/signup", func(w http.ResponseWriter, r *http.Request) {functions.SignUp(w, r, db)}).Methods(http.MethodPost, http.MethodOptions)
+	r.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {functions.LogIn(w,r,db)}).Methods(http.MethodPost, http.MethodOptions)
 }
