@@ -24,7 +24,7 @@ func CORSHandler(next http.Handler) http.Handler {
 }
 
 type user struct {
-	UserId       int    `db:"user_id"`
+	UserId       int    `json:"userId" db:"user_id"`
 	UserName     string `json:"userName" db:"user_name"`
 	UserNickname string `json:"userNickname" db:"user_nickname"`
 	UserEmail    string `json:"userEmail" db:"user_email"`
@@ -108,6 +108,37 @@ func LogIn(w http.ResponseWriter, r *http.Request, db *database.Database) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	if err := json.NewEncoder(w).Encode(&response); err != nil {
+		log.Println("Received an error while encoding json: ", err)
+	}
+}
+
+func ChangePlan(w http.ResponseWriter, r *http.Request, db *database.Database) {
+	type request struct {
+		UserId int `json:"userId"`
+		PlanId int `json:"planId"`
+	}
+
+	var req request
+	var res return_to_user
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		log.Println("Received an error while decoding json: ", err)
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(return_to_user{Success: 0, Error: err})
+		return
+	}
+
+	_, err := db.Exec(`UPDATE "user_plan" SET plan_id = $2 WHERE user_id = $1`, req.UserId, req.PlanId)
+	if err != nil {
+		log.Println("Received an error while updating a data in the database: ", err)
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(return_to_user{Success: 0, Error: err})
+		return
+	}
+
+	res.Success = 1
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	if err := json.NewEncoder(w).Encode(&res); err != nil {
 		log.Println("Received an error while encoding json: ", err)
 	}
 }
