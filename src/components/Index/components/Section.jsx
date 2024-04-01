@@ -1,4 +1,5 @@
 import styles from "./Section.module.css"
+import { IoMdDownload } from "react-icons/io";
 
 export default function Section(props) {
 
@@ -11,6 +12,7 @@ export default function Section(props) {
           <p>{props.paragraph}</p>
           <p>{props.length}</p>
         </div>
+        {props.download ? <IoMdDownload className={styles.icon}/>: null}
       </div> 
     </>
   ); 

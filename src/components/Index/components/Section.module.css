@@ -8,6 +8,7 @@
   border: 1px dashed gray;
   border-radius: 2rem;
 }
+
 .container:hover {
   background-color: rgb(230, 230, 230);
 }
@@ -15,4 +16,17 @@
 .container img {
   width: 10rem;
   border-radius: 1rem;
+}
+
+.container .icon {
+  font-size: 1.5em;
+  padding: .5rem;
+  border: 1px dashed black;
+  border-radius: 2rem;
+  background-color: white;
+}
+
+.container .icon:hover {
+  background-color: rgb(20, 20, 20);
+  color: white;
 }

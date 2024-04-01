@@ -39,7 +39,7 @@ function Header() {
 
         {loggedIn ? 
         <div className={styles.profile}>
-          <p>Welcome, Metudu!</p>
+          <p>Welcome, {JSON.parse(window.localStorage.getItem("user")).user.userNickname}!</p>
           <button className={styles.button} onClick={() => {
             window.localStorage.removeItem("user");
             setLoggedIn(false);
